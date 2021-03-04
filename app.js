@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import {dirname} from "path";
 import {fileURLToPath} from "url";
-import date from "./date.js"
+import * as date from "./date.js";
 
 
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.static("public"));
 
 app.get("/", (req,res) =>{
 
-    const day = date();
+    const day = date.getDate();
     res.render("list", {ListTitle: day, newListItems: items});
     
 });
